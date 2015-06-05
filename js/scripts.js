@@ -1,6 +1,6 @@
 function Player() {
-  this.startingCards = "";
-  this.playerCards = "";
+  this.startingCards = [];
+  this.playerCards = [];
 }
 
 function Game() {
@@ -8,7 +8,7 @@ function Game() {
   this.discardPile = [];
 }
 
-Player.prototype.startingCards = function (first_argument) {
+Player.prototype.startingCards = function () {
   var red_numbers = ["r0", "r1", "r1", "r2", "r2", "r3", "r3", "r4", "r4", "r5", "r5", "r6", "r6", "r7", "r7", "r8", "r8", "r9", "r9"]
   var green_numbers = ["g0", "g1", "g1", "g2", "g2", "g3", "g3", "g4", "g4", "g5", "g5", "g6", "g6", "g7", "g7", "g8", "g8", "g9", "g9"]
   var blue_numbers = ["b0", "b1", "b1", "b2", "b2", "b3", "b3", "b4", "b4", "b5", "b5", "b6", "b6", "b7", "b7", "b8", "b8", "b9", "b9"]
@@ -18,8 +18,14 @@ Player.prototype.startingCards = function (first_argument) {
   var blue_specials = ["bd", "bd", "bs", "bs", "bv", "bv"]
   var yellow_specials = ["yd", "yd", "ys", "ys", "yv", "yv"]
   var wild_cards = ["wc", "wc", "wc", "wc", "wf", "wf", "wf", "wf"]
-  var number_cards = red_numbers
-
+  var number_cards = red_numbers.concat(green_numbers, blue_numbers, yellow_numbers);
+  var special_cards = red_specials.concat(green_specials, yellow_specials, blue_specials);
+  for (i=0; i<4; i++) {
+    var randomCard = number_cards[Math.floor(Math.random() * number_cards.length)];
+    var cardIndex = number_cards.indexOf(randomCard);
+    this.playerCards.push(randomCard);
+    number_cards = number_cards.splice(index, cardIndex);
+    }
 };
 
 
@@ -27,7 +33,7 @@ Player.prototype.startingCards = function (first_argument) {
 
 $(document).ready(function() {
   $('form#start_game').submit(function(event) {
-    var player = new Player();
+    var player = new Player().startingCards;
     var opponentCount = $('input#option');
     $('.pre-game').slideUp('slow');
     $('#in-game').delay(1000).fadeIn();
