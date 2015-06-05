@@ -2,3 +2,11 @@ body {
   background-image: url("../public/images/landing_background.jpg");
   background-size: 115%, 100%;
 }
+
+#in-game {
+  display: none;
+}
+
+#opponent-info {
+
+}

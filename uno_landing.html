@@ -8,8 +8,8 @@
     <title>Uno Game</title>
   </head>
   <body>
-    <div class="container pre-game">
-      <h1>Welcome to game of Uno!</h1>
+    <div class="container">
+      <h1><span class="title-header">Welcome to game of Uno!</span></h1>
       <div class="pre-game">
         <h3>Select your desired number of computer opponents:</h3>
         <form id="start_game">
@@ -25,11 +25,30 @@
           <button type="submit" name="start_game">Start Game</button>
         </form>
       </div>
-      <div class="game-board">
 
+      <div id="in-game">
+        <div class="container" id="game-board">
+          <div class="row">
+            <div class="col-xs-4 offset-1" id="opponent-info">
+              <p>Opponent column</p>
+            </div>
 
+            <div class="col-xs-2" id="drawDiscard">
+              draw/discard pile
+            </div>
+
+            <div class="col-xs-4 offset-1" id="player-info">
+              player column
+            </div>
+          </div>
+        </div>
+        <div class="container" id="player-cards">
+          <p>player cards here - added dynamically and stays visible when many are added - click cards to use</p>
+        </div>
+        <div class="container" id="player-actions">
+          <p>Player actions here(draw card, end game, etc.)
+        </div>
       </div>
-
 
 
     </div>
