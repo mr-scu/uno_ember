@@ -15,7 +15,7 @@
         <form id="start_game">
           <label for="oponnentCount">Select your number of opponents:</label>
           <br>
-          <select class="form-group" name="opponents">
+          <select class="form-group" id="opponents" name="opponents">
             <option selected disabled hidden value=''>Please choose</option>
             <option value="1">One Oponnent</option>
             <option value="2">Two Opponents</option>
@@ -30,7 +30,7 @@
         <div class="container" id="game-board">
           <div class="row">
             <div class="col-xs-4 offset-1" id="opponent-info">
-              <p>Opponent column</p>
+              <p class='test-details'>Opponent column</p>
             </div>
 
             <div class="col-xs-2" id="drawDiscard">
