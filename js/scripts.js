@@ -2,10 +2,20 @@ function Player() {
   this.playerCards = [];
 };
 
-function Game() {
+function Game(opponentCount) {
+
   this.drawPile = [];
   this.discardPile = [];
+  this.startingCardsRemaining = [];
 };
+
+// new game function should create player, create opponents based on
+// number chosen, run starting cards for player, then for opponents,
+// then take remaining cards and push into game drawpile.
+
+// function Computer() {
+//   this.playerCards = [];
+// };
 
 Player.prototype.startingCards = function () {
   var red_numbers = ["r0", "r1", "r1", "r2", "r2", "r3", "r3", "r4", "r4", "r5", "r5", "r6", "r6", "r7", "r7", "r8", "r8", "r9", "r9"]
@@ -37,6 +47,7 @@ Player.prototype.startingCards = function () {
     special_cards.splice(cardIndex, 1);
     specialCardsCount -= 1;
     }
+
 };
 
 
@@ -46,11 +57,13 @@ $(document).ready(function() {
   $('form#start_game').submit(function(event) {
     event.preventDefault();
     var player = new Player();
-    player.startingCards;
+    player.startingCards();
     var opponentCount = $('#opponents option:selected').val();
+
     $('.pre-game').slideUp('slow');
     $('#in-game').delay(1000).fadeIn();
     $('.title-header').text("The Game Has Begun!");
-    $('.test-details').append();
+    // below is a test to display a card on the page(result on html 33)
+    $('.test-details').append(", " + player.playerCards[0]);
   });
 });
